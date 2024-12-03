@@ -1,3 +1,4 @@
+
 import { FaStar } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa6";
 import { MovieRate } from "./styles";

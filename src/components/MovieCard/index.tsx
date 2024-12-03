@@ -1,3 +1,5 @@
+"use client";
+
 import { MovieType } from "@/types/movie";
 import { MovieCardContainer, MoviePoster, MovieInfos, MovieTitle, HiddenContent, StyledButton, MovieDescription } from './styles';
 import Image from "next/image";
