@@ -45,7 +45,7 @@ export const MoviePoster = styled.div`
 
 export const StyledButton = styled.button`
   position: absolute;
-  top: 50%; 
+  top: 32%; 
   left: 50%;
   transform: translate(-50%, -50%); 
   background-color: #6046ff;
@@ -79,7 +79,7 @@ export const MovieTitle = styled.p`
 `;
 
 export const HiddenContent = styled.div<{ $isVisible: boolean }>`
-  max-height: ${({ $isVisible }) => ($isVisible ? "100px" : "0")};
+  max-height: ${({ $isVisible }) => ($isVisible ? "700px" : "0")};
   overflow: hidden; 
   color: #fff;
   font-size: 12px;
@@ -92,4 +92,7 @@ export const MovieDescription = styled.p`
   font-size: 14px;
   color: #fff;
   margin-top: 8px;
+  max-height: 60px;
+  overflow-y: auto;
+  padding-right: 10px;
 `;

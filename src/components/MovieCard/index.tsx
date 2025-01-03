@@ -43,7 +43,7 @@ export default function MovieCard(props: Props) {
           <HiddenContent $isVisible={isExpanded}>
             <MovieDescription>
               {movie.overview && movie.overview.length > 100
-                ? `${movie.overview.substring(0, 100)}...`
+                ? `${movie.overview.substring(0, 700)}`
                 : movie.overview || 'Sem descrição'}
             </MovieDescription>
           </HiddenContent>

@@ -1,4 +1,8 @@
 module.exports = {
+  compiler: {
+    styledComponents: true,
+  },
+  transpilePackages: ["react-loading"],
   images: {
     remotePatterns: [
       {

@@ -1,5 +1,6 @@
 
 import MovieList from "@/components/MovieList";
+import Footer from "@/components/Footer";
 
 
 
@@ -9,7 +10,7 @@ export default function Home() {
    
      <div>
       <MovieList />
-      
+      <Footer />
      </div>
   );
 }

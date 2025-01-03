@@ -10,4 +10,4 @@ export default function Loading() {
             <ReactLoading type='spin' color='#6046ff' height={'5%'} width={'5%'} />
         </LoadingContainer>
     );
-}
+}    
