@@ -1,10 +1,25 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
 }
 
-body{
+body {
     font-family: 'Roboto', sans-serif;
-    background-color: #020617;
+    background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+    color: #ecf0f1; 
+    
+    height: 100%;
+    position: relative;
+    width: 100%; /* Garantir que ocupe toda a largura da tela */
+}
+
+.layout{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.layout> :nth-child(2) {
+    flex: 1;
 }

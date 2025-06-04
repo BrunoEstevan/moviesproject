@@ -1,0 +1,8 @@
+{
+    "discord.detailsIdling": "Ta curioso né fdp? kkk to codando alguma coisa ai",
+    "discord.enabled": false,
+    "discord.detailsEditing": "Codando em: {file_name}",
+    "discord.detailsDebugging": "Debugando em : {file_name}",
+    "discord.largeImageIdling": "Codando",
+    "discord.lowerDetailsEditing": "Pasta de Trabalho: {workspace}"
+}
