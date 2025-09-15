@@ -1,38 +1,20 @@
 "use client"
-import { useState } from 'react';
-import MovieList from "@/components/MovieList";
 import Footer from "@/components/Footer";
+import MovieList from "@/components/MovieList";
 import Sidebar from "@/components/Sidebar";
-import Navbar from "@/components/NavBar";
-
-
-
-
-
+import { useSearch } from "@/contexts/SearchContext";
 
 export default function Home() {
-  const [selectedGenre, setSelectedGenre] = useState<number | null>(null);
-
-
-  const handleGenreSelect = (genreId: number) => {
-  
-    setSelectedGenre(genreId);
-};
+  const { searchQuery, selectedGenre } = useSearch();
 
   return (
-    
-    <>
-   
-
-     <main>
-     
-     <MovieList selectedGenre={selectedGenre} />
-     <Sidebar onGenreSelect={handleGenreSelect} />
-
-   
-     </main>
-    
-    </>
-       
+    <main style={{ position: 'relative', minHeight: '100vh'  }}>
+      <MovieList 
+        selectedGenre={selectedGenre} 
+        searchQuery={searchQuery}
+      />
+      <Sidebar />
+       <Footer />
+    </main>
   );
 }

@@ -1,38 +1,38 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { InputGroup, InputIcon, InputField, HiddenSearchBar } from './styles';
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { SearchContainer, SearchInput, SearchIcon } from './styles';
+import { FiSearch } from "react-icons/fi";
 
 type Props = {
-  onSearchChange: (search: string) => void;
+  onSearchChange?: (search: string) => void;
+  placeholder?: string;
 };
 
-export default function SearchBar({ onSearchChange }: Props) {
+export default function SearchBar({ onSearchChange, placeholder = "Buscar filmes..." }: Props) {
   const [search, setSearch] = useState<string>('');
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const toggleContent = () => {
-    setIsExpanded((prev) => !prev);
-  };
 
   useEffect(() => {
-    onSearchChange(search);
+    if (onSearchChange) {
+      const timeoutId = setTimeout(() => {
+        onSearchChange(search);
+      }, 300); // Debounce de 300ms
+
+      return () => clearTimeout(timeoutId);
+    }
   }, [search, onSearchChange]);
 
   return (
-    <InputGroup $isExpanded={isExpanded}>
-      <InputIcon onClick={toggleContent}>
-        <FaMagnifyingGlass />
-      </InputIcon>
-      <HiddenSearchBar $isVisible={isExpanded}>
-        <InputField
-          type="text"
-          placeholder="Pesquisar"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </HiddenSearchBar>
-    </InputGroup>
+    <SearchContainer>
+      <SearchIcon>
+        <FiSearch />
+      </SearchIcon>
+      <SearchInput
+        type="text"
+        placeholder={placeholder}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+    </SearchContainer>
   );
 }

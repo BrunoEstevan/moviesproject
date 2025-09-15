@@ -5,21 +5,108 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', 'Roboto', sans-serif;
     background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
     color: #ecf0f1; 
-    
-    height: 100%;
+    height: 100vh;
     position: relative;
-    width: 100%; /* Garantir que ocupe toda a largura da tela */
+    width: 100%;
+    overflow-x: hidden;
 }
 
-.layout{
+.layout {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-.layout> :nth-child(2) {
+.layout > :nth-child(2) {
     flex: 1;
+    margin-top: 80px; /* Espaço para o navbar fixo */
+    padding: 0;
+}
+
+/* Variáveis para fácil troca de tema */
+:root {
+  --scroll-track: #0f172a;
+  --scroll-track-alt: #0b1220;
+  --scroll-thumb: #6366f1;
+  --scroll-thumb-hover: #8b5cf6;
+  --scroll-thumb-active: #4f46e5;
+}
+
+/* Firefox */
+html, body {
+  scrollbar-width: thin;                 /* auto | thin | none */
+  scrollbar-color: var(--scroll-thumb) var(--scroll-track);
+  /* Mantém espaço p/ não “pular” layout quando aparece */
+  scrollbar-gutter: stable;
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(180deg,var(--scroll-track) 0%, var(--scroll-track-alt) 100%);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg,var(--scroll-thumb) 0%, var(--scroll-thumb-hover) 100%);
+  border-radius: 20px;
+  border: 2px solid var(--scroll-track); /* cria “gap” visual */
+  transition: background .25s ease, border-color .25s ease;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg,var(--scroll-thumb-hover) 0%, var(--scroll-thumb) 100%);
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: var(--scroll-thumb-active);
+}
+
+/* (Opcional) esconder setas antigas em alguns navegadores */
+body::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* (Opcional) suavizar rolagem */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animações globais */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
